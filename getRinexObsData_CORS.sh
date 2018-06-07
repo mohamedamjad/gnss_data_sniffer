@@ -21,7 +21,7 @@ do
   for dayOfYear in $(seq -w $START_DAY $END_DAY)
   do
   	hatanaka_file=$STATION_NAME${dayOfYear}0.${year:2:4}d
-    wget --directory-prefix=$OUTPUT_DIR ftp://rgpdata.ign.fr/pub/data/$year/$dayOfYear/data_30/${hatanaka_file}.Z
+    wget --directory-prefix=$OUTPUT_DIR ftp://data-out.unavco.org/pub/rinex/obs/$year/$dayOfYear/${hatanaka_file}.Z
     uncompress ${OUTPUT_DIR}/${hatanaka_file}.Z
     ./CRX2RNX ${OUTPUT_DIR}/$hatanaka_file
   done
